@@ -1,0 +1,269 @@
+<html>
+	<head>
+		<script>
+
+            /* O functie care compara 2 valori si returneaza true daca sunt egale si false daca nu sunt egale */
+
+            function comparatie1 (var1, var2) {
+				if (var1 !== var2) {
+					var rezultat = "false";
+				} else {
+					var rezultat = "true";
+				}
+                return rezultat;
+			}
+			console.log(comparatie1(2,2));
+            console.log(comparatie1(2,3)); 
+            
+            /* O functie care compara 2 valori si returneaza -1 daca primul e mai mic ca al doilea, 0 daca sunt egale si 1 daca primul e mai mare ca al doilea */
+
+            function comparatie2 (varX, varY) {
+                if (varX < varY) {
+                    var rezultat = -1;
+                } if (varX > varY)  {
+                    var rezultat = 1;
+                } if (varX==varY) {
+                    var rezultat = 0;
+                }
+                return rezultat;
+            }
+            console.log (comparatie2 (23, 23));
+            console.log (comparatie2 (21, 20));
+            console.log (comparatie2 (13, 20)); 
+
+            /* O functie care primeste 2 valori si returneaza maximul dintre cele 2 */
+
+            function max (varA, varB) {
+                if (varA > varB) {
+                    maximum = varA; 
+                } else {
+                    maximum = varB;
+                }
+                return maximum;
+            }
+            console.log (max(1,2));
+            console.log (max(2,1));
+
+            /* O functie care primeste 2 valori si returneaza minimul dintre cele 2 */
+
+            function min (varC, varD) {
+                if (varC < varD) {
+                    minimum = varC; 
+                } else {
+                    minimum = varD;
+                }
+                return minimum;
+            }
+            console.log (min(1,2));
+            console.log (min(2,1)); 
+
+            /* O functie care intoarce suma primelor N numere naturale pozitive */
+
+            
+            function sumaNumere (N) {
+                var suma = 0
+                for (var i = 1; i <= N; i++) {
+                    suma = suma + i;
+                }
+                return suma;
+            }
+            console.log (sumaNumere(8)); 
+
+            /* O functie care verifica daca N este numar prim (restul impartirii la 1 si la N ==0) */
+
+            
+            function estePrim(n) {
+                for (var i = 2; i < n; i++){
+                    if (n%i === 0){
+                        return "nu este prim";
+                    }
+                }
+                return "este prim";
+            }
+            console.log(estePrim(7));
+            console.log(estePrim(8));
+
+            /* O functie care intoarce suma primelor N numere prime */
+
+            function esteNumarPrim(n){
+                if(n < 2){
+                return false;
+                }
+                for(var i = 2; i < n; i++){
+                    if(n % i === 0){
+                    return false;
+                    }
+                }
+                return true;
+            }
+            function primeleNPrime(n){
+                var prime = [];
+                for(var i = 2; prime.length < n; i++){  
+                    if(esteNumarPrim(i)){
+                    prime.push(i);
+                    }
+                }
+                return prime;
+            }
+            function sumaNPrime(n){
+                var suma = 0;
+                var listaPrime = primeleNPrime(n);
+                for (var i=0; i < listaPrime.length; i++) {
+                    var numarPrim = listaPrime[i];
+                    suma += numarPrim;
+                }
+                return suma; 
+            }
+            
+            console.log (sumaNPrime(5));
+
+            /* O functie care primeste un parametru de tip string si intoarce inversul acestuia (abc => cba) */
+            
+            function parametruInversat(litere) {
+                var inversul = "";
+                for (var i = litere.length - 1; i >= 0; i--) {
+                    inversul += litere[i];
+                }
+                return inversul;
+            }
+            console.log (parametruInversat('string'));
+
+            /* O functie care intoarce produsul primelor N numere impare pozitive */
+
+            function esteNumarImpar(n){
+                if (n < 0) {
+                    return false;
+                }
+                if (n%2 === 0){
+                    return false;
+                }
+                    return true;
+            }
+            function primeleNImpare(n){
+                var impare = [];
+                for (var i = 1; impare.length < n; i++){  
+                    if (esteNumarImpar(i)) {
+                    impare.push(i);
+                    }
+                }
+                return impare;
+            }
+            function produsNImpare(n){
+                var produs = 1;
+                var listaImpare = primeleNImpare(n);
+                for (var i=0; i < listaImpare.length; i++) {
+                    var numarImpar = listaImpare[i];
+                    produs = numarImpar * produs;
+                }
+                return produs; 
+            }
+            
+            console.log (produsNImpare(5));
+            
+
+            /* O functie care primeste 2 parametri(arr - array de nr intregi si x - numar) si verifica daca x exista in array */
+
+            function verificare (arr, x) {
+                for (var i = 0; i<=arr.length; i++) {
+                    if (arr[i] === x) {
+                        return true;
+                    }
+                }
+                return false
+            }
+
+            console.log (verificare([5, 7, 9, 13, 12, 3], 3));
+            console.log (verificare([5, 7, 9, 13, 12, 3], 23));
+
+            /* O functie care intoarce maximul dintr-un array primit ca parametru */
+
+            function maxDinArray(arr) {
+                var max = arr[0];
+                for (var i = 1; i <= arr.length; i++) {
+                    if (arr[i] > max) {
+                        max = arr[i];
+                    }
+                }
+                return max;
+            }              
+            
+            console.log (maxDinArray([2, 9, 34, 4, 7, 56, 3, 4]))
+
+            /* O functie care intoarce suma dintre max si min, dintr-un array primit ca parametru */
+
+            function sumaMinMax(arr) {
+                var max = arr[0];
+                var min = arr[0];
+                for (var i = 1; i <= arr.length; i++) {
+                    if (arr[i] > max) {
+                        max = arr[i];
+                    }
+                }
+                for (var i = 1; i <= arr.length; i++) {
+                    if (arr[i] < min) {
+                        var min = arr[i];
+                    }
+                }
+                var suma = min + max;
+            return suma;
+            }
+
+            console.log (sumaMinMax([2, 5, 1, 7, 3]))
+            console.log (sumaMinMax([70, 5, 1, 7, 3]))
+
+            /* O functie care verifica daca exista duplicate intr-un array primit ca parametru */
+
+            function duplicateArray(arr) {
+                var duplicate = [];
+                for (var i = 0; i<= arr.length; i++) {
+                    for (var j = i; j<= arr.length; j++) {
+                        if (arr[i] === arr[j] && i!==j) {
+                            duplicate.push(arr[i]);
+                        }
+                    }
+                } 
+            return duplicate;
+            }
+
+            console.log (duplicateArray([7, 10, "cat", "cat", 7]))
+
+            /* O functie care intoarce produsul numerelor pozitive intr-un array primit ca parametru */
+            
+            function produsNumerePozitive (arr) {
+                var produs = 1;
+                for (var i=0; i < arr.length; i++) {
+                    var numarPozitiv = arr[i];
+                    if (numarPozitiv > 0) {
+                    produs = numarPozitiv * produs;
+                    }
+                }
+                return produs; 
+            }
+
+            console.log (produsNumerePozitive([2, 4, 3, -1]));
+
+            /* O functie care verifica daca un string primit ca parametru este palindrom (inversul == originalul, ex: abcba == abcba, abca != acba */ 
+
+            function parametruInversat(litere) {
+                var inversul = "";
+                for (var i = litere.length - 1; i >= 0; i--) {
+                    inversul += litere[i];
+                }
+                return inversul;
+            }
+            
+            function palindrom(string) {
+                if (parametruInversat(string) === string) {
+                    return string + ' este un palindrom'
+                } else {
+                    return string + ' nu este un palindrom'
+                }
+            } 
+            
+            console.log (palindrom("acasa"));
+            console.log (palindrom("reper"));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
