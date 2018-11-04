@@ -1,4 +1,4 @@
-<html>
+ <html>
 	<head>
 		<script>
 
@@ -6,9 +6,9 @@
 
             function comparatie1 (var1, var2) {
 				if (var1 !== var2) {
-					var rezultat = "false";
+					return false;
 				} else {
-					var rezultat = "true";
+					return true;
 				}
                 return rezultat;
 			}
@@ -197,11 +197,8 @@
                 for (var i = 1; i <= arr.length; i++) {
                     if (arr[i] > max) {
                         max = arr[i];
-                    }
-                }
-                for (var i = 1; i <= arr.length; i++) {
-                    if (arr[i] < min) {
-                        var min = arr[i];
+                    } if (arr[i] < min) {
+                        min = arr[i];
                     }
                 }
                 var suma = min + max;
@@ -216,8 +213,8 @@
             function duplicateArray(arr) {
                 var duplicate = [];
                 for (var i = 0; i<= arr.length; i++) {
-                    for (var j = i; j<= arr.length; j++) {
-                        if (arr[i] === arr[j] && i!==j) {
+                    for (var j = i+1; j<= arr.length; j++) {
+                        if (arr[i] === arr[j]) {
                             duplicate.push(arr[i]);
                         }
                     }
